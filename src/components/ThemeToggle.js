@@ -4,9 +4,9 @@ import { ThemeContext } from '../contexts/ThemeContext';
 class ThemeToggle extends React.Component {
     static contextType  = ThemeContext;
     render() { 
-        const { toggleThemeHandler } = this.context;
+        const { isLightTheme, toggleThemeHandler } = this.context;
         return (
-            <button onClick={ toggleThemeHandler }>Change Theme</button>
+            <button onClick={ toggleThemeHandler }>{isLightTheme ? 'Black Theme': 'White Theme'}</button>
         );
     }
 }

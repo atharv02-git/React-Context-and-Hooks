@@ -13,7 +13,7 @@ class AuthContextProvider extends React.Component {
 
   render() {
     return (
-      <AuthContext.Provider value={{ ...this.state, toggleAuth: this.toggleAuth }}>
+      <AuthContext.Provider value={{ ...this.state, toggleAuthHandler: this.toggleAuth }}>
         {this.props.children}
       </AuthContext.Provider>
     );
