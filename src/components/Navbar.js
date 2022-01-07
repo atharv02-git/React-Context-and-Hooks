@@ -8,7 +8,7 @@ class Navbar extends React.Component {
       //Accessing context
       <AuthContext.Consumer>{(authContext) => (
       <ThemeContext.Consumer>{(themeContext) => {
-          const { isAuhenticated, toggleAuth } = authContext;  //destructuring properties of the authcontext
+          const { isAuhenticated } = authContext;  //destructuring properties of the authcontext
           const { isLightTheme, light, dark } = themeContext; //destructuring properties of the themecontext
           const theme = isLightTheme ? light : dark;
           return ( //This return will return an jsx template
