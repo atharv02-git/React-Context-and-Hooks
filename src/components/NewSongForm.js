@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
-export default function NewSongForm({addSongHandler}) {
+export default function NewSongForm({addSong}) {
     const [title, setTitle] = useState('')
 
     const submitHandler = (e) => {
         e.preventDefault();
-        addSongHandler(title)
+        addSong(title)
         setTitle('')
     }
 

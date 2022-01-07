@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import NewSongForm from './NewSongForm';
 
@@ -7,21 +7,26 @@ const SongList = () => {
     { title: 'almost home', id: 1 },
     { title: 'memory gospel', id: 2 },
     { title: 'this wild darkness', id: 3 }
-  ])
-
-  const addSongHandler = (title) => {
-    setSongs([...songs,{title, id: uuidv4()}])
-  }
-
+  ]);
+  const [age, setAge] = useState(20);
+  const addSong = (title) => {
+    setSongs([...songs, { title, id: uuidv4() }]);
+  };
+  useEffect(() => {
+    console.log('useEffect callback', songs);
+  }, [songs]);
+  useEffect(() => {
+    console.log('useEffect callback at age: ', age);
+  }, [age]);
   return (
     <div className="song-list">
       <ul>
-        {songs.map((song) => (
-          <li key={song.id}>{song.title}</li>
-        ))}
+        {songs.map(song => {
+          return ( <li key={song.id}>{song.title}</li> );
+        })}
       </ul>
-      <NewSongForm addSongHandler={addSongHandler} />
-      {/* <button onClick={addSongHandler}>Add Songs</button> */}
+      <NewSongForm addSong={addSong} />
+      <button onClick={() => setAge(age + 1)}>Add 1 to age: {age}</button>
     </div>
   );
 }
